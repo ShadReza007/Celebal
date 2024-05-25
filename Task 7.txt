@@ -1,0 +1,16 @@
+from itertools import combinations
+a = 0
+n = int(input())
+letters = input().split()
+k = int(input())
+indexes = [i for i in range(1, n + 1)]
+allPossibleKChoices = list(combinations(indexes, k))
+indexesContainA = [i + 1 for i in range(len(letters)) if letters[i].lower() == 'a']
+
+
+for iChoice in allPossibleKChoices:
+    for value in iChoice:
+        if value in indexesContainA or value in indexesContainA:
+            a += 1
+            break
+print(f"{a/len(allPossibleKChoices):.3f}")
